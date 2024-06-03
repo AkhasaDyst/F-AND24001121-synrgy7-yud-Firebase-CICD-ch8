@@ -8,6 +8,7 @@ import com.yudhi.moviedatabase.api.RemoteDataSource
 import com.yudhi.moviedatabase.data.MovieRepository
 import com.yudhi.moviedatabase.helper.MyDataStore
 
+/*
 class MovieViewModelFactory(val remoteDataSource: RemoteDataSource, val pref: MyDataStore) :
     ViewModelProvider.NewInstanceFactory() {
 
@@ -31,5 +32,5 @@ class MovieViewModelFactory(val remoteDataSource: RemoteDataSource, val pref: My
         }
         throw IllegalArgumentException("Unknown class name")
     }
-
 }
+ */

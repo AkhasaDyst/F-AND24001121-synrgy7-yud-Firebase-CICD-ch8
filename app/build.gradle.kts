@@ -118,6 +118,18 @@ dependencies {
     // To use Kotlin annotation processing tool (kapt)
     kapt ("androidx.room:room-compiler:$room_version")
 
+    val work_version = "2.9.0"
+    // Kotlin + coroutines
+    implementation ("androidx.work:work-runtime-ktx:$work_version")
+    implementation ("com.squareup.picasso:picasso:2.71828")
+    //KOIN
+    implementation ("io.insert-koin:koin-core:3.2.2")
+    implementation ("io.insert-koin:koin-android:3.5.0")
+    implementation ("io.insert-koin:koin-android-compat:3.3.0")
+    implementation ("io.insert-koin:koin-androidx-workmanager:3.3.0")
+    implementation ("io.insert-koin:koin-androidx-navigation:3.3.0")
+
+
 
 
 }

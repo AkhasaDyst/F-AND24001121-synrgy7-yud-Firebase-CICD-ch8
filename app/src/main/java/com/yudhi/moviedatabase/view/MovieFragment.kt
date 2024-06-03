@@ -20,12 +20,13 @@ import com.yudhi.moviedatabase.model.movie.MovieResponse
 import com.yudhi.moviedatabase.model.movie.RatingRequest
 import com.yudhi.moviedatabase.model.movie.Responses
 import com.yudhi.moviedatabase.viewmodel.MovieViewModel
-import com.yudhi.moviedatabase.viewmodel.MovieViewModelFactory
 import com.yudhi.moviedatabase.helper.Status
 import com.yudhi.moviedatabase.model.MovieAdapter
 import com.yudhi.moviedatabase.model.movie.Result
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,9 +35,8 @@ import retrofit2.Response
 class MovieFragment : Fragment() {
     private lateinit var binding: FragmentMovieBinding
     private lateinit var movieAdapter: MovieAdapter
-    private val viewModel: MovieViewModel by viewModels {
-        MovieViewModelFactory.getInstance(requireContext())
-    }
+    private val viewModel: MovieViewModel by viewModel()
+    private val MyDataStore: MyDataStore by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,7 +56,7 @@ class MovieFragment : Fragment() {
         recyclerView.adapter = movieAdapter
 
         viewLifecycleOwner.lifecycleScope.launch {
-            val (username, password, email) = MyDataStore.getSavedAccount(requireContext()).first()
+            val (username, password, email) = MyDataStore.getSavedAccount().first()
             binding.tvWelcome.text = "Welcome, $username"
         }
 

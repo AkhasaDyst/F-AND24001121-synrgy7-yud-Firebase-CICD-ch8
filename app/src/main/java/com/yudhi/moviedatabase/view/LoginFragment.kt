@@ -25,11 +25,13 @@ import kotlinx.coroutines.Dispatchers
 
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.koin.android.ext.android.inject
 
 
 class LoginFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var binding: FragmentLoginBinding
+    private val MyDataStore: MyDataStore by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,33 +44,48 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val usernameEditText = binding.etUsername.editText
-        val passwordEditText = binding.etPassword.editText
+        viewLifecycleOwner.lifecycleScope.launch {
+            MyDataStore.getLogin().collect { is_login_key->
+                if (is_login_key == true) {
+                    view.findNavController().navigate(R.id.action_loginFragment_to_movieFragment)
+                    Toast.makeText(requireContext(), "Succses Login", Toast.LENGTH_SHORT).show()
+                    Log.d("d", "Navigation to Movie Fragment")
+                } else {
+                    val usernameEditText = binding.etUsername.editText
+                    val passwordEditText = binding.etPassword.editText
 
-        binding.btnLoginMovie.setOnClickListener {
-            val enteredUsername = usernameEditText?.text.toString()
-            val enteredPassword = passwordEditText?.text.toString()
-            viewLifecycleOwner.lifecycleScope.launch {
-                MyDataStore.getSavedAccount(requireContext()).collect { (username, password) ->
-                    if (username == enteredUsername && password == enteredPassword) {
-                        view.findNavController().navigate(R.id.action_loginFragment_to_movieFragment)
-                        Toast.makeText(requireContext(), "succses", Toast.LENGTH_SHORT).show()
-                        Log.d("d", "Navigation to Movie Fragment")
-                    } else {
-                        Toast.makeText(requireContext(), "INVALID LOGIN", Toast.LENGTH_SHORT).show()
-                        Log.d("d", "cantt")
+                    binding.btnLoginMovie.setOnClickListener {
+                        val enteredUsername = usernameEditText?.text.toString()
+                        val enteredPassword = passwordEditText?.text.toString()
+                        viewLifecycleOwner.lifecycleScope.launch {
+                            MyDataStore.getSavedAccount().collect { (username, password) ->
+                                if (username == enteredUsername && password == enteredPassword) {
+                                    view.findNavController().navigate(R.id.action_loginFragment_to_movieFragment)
+                                    Toast.makeText(requireContext(), "succses", Toast.LENGTH_SHORT).show()
+                                    Log.d("d", "Navigation to Movie Fragment")
+                                } else {
+                                    Toast.makeText(requireContext(), "INVALID LOGIN", Toast.LENGTH_SHORT).show()
+                                    Log.d("d", "cantt")
+                                }
+                            }
+                        }
+
+
+
                     }
+
+                    binding.tvAkun.setOnClickListener{
+                        view.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+                    }
+                    Log.d("d", "normal")
                 }
             }
-
-
-
         }
 
-        binding.tvAkun.setOnClickListener{
-            view.findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-        }
+
     }
+
+
 
 
 }

@@ -29,7 +29,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:id="@+id/iv_logo"
-            android:background="@mipmap/synrgy"
+            android:background="@drawable/logo_tmdb_foreground"
             />
     </androidx.cardview.widget.CardView>
 

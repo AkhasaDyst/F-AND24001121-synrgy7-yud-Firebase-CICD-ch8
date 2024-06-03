@@ -17,10 +17,12 @@ import com.yudhi.moviedatabase.R
 import com.yudhi.moviedatabase.databinding.FragmentRegisterBinding
 import com.yudhi.moviedatabase.helper.MyDataStore
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 
 
 class RegisterFragment : Fragment() {
     private lateinit var binding: FragmentRegisterBinding
+    private val MyDataStore: MyDataStore by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,7 +48,7 @@ class RegisterFragment : Fragment() {
             val enteredEmail = emailEditText?.text.toString()
             viewLifecycleOwner.lifecycleScope.launch {
                 if (enteredPassword == enteredPassword2 && enteredUsername != null && enteredEmail != null) {
-                    MyDataStore.saveAccount(requireContext(), enteredUsername, enteredPassword, enteredEmail)
+                    MyDataStore.saveAccount( enteredUsername, enteredPassword, enteredEmail)
                     view.findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
                 } else {
                     Toast.makeText(requireContext(), "WRONG PASSWORD", Toast.LENGTH_SHORT).show()

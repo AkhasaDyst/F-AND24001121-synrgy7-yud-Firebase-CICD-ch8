@@ -16,7 +16,7 @@
 
 @file:JvmName("Constants")
 
-package com.example.background
+package com.yudhi.moviedatabase.viewmodel
 
 // Notification Channel constants
 

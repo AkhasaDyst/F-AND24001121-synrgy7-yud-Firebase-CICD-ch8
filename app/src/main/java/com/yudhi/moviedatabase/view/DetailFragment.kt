@@ -20,10 +20,10 @@ import com.yudhi.moviedatabase.model.movie.MovieResponse
 import com.yudhi.moviedatabase.model.movie.RatingRequest
 import com.yudhi.moviedatabase.model.movie.Responses
 import com.yudhi.moviedatabase.viewmodel.MovieViewModel
-import com.yudhi.moviedatabase.viewmodel.MovieViewModelFactory
 import com.yudhi.moviedatabase.helper.Status
 import com.yudhi.moviedatabase.model.MovieAdapter
 import com.yudhi.moviedatabase.model.movie.Result
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,9 +31,7 @@ import retrofit2.Response
 
 class DetailFragment : Fragment() {
     private lateinit var binding: FragmentDetailBinding
-    private val viewModel: MovieViewModel by viewModels {
-        MovieViewModelFactory.getInstance(requireContext())
-    }
+    private val viewModel: MovieViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
