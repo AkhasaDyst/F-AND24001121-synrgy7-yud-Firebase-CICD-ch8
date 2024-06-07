@@ -1,89 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".view.DetailFragment">
-
-    <ImageView
+    tools:context=".presentation.ui.DetailFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:id="@+id/iv_posterdetail"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxHeight="50dp"
-        android:maxWidth="300dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/tv_juduldetail"
-        android:text="Judul Note aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_posterdetail"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxHeight="30dp"
-        android:maxWidth="250dp"
-        android:id="@+id/tv_votedetail"
-        android:text="7.509"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="@id/tv_juduldetail"
-        app:layout_constraintTop_toBottomOf="@id/tv_juduldetail"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxHeight="30dp"
-        android:maxWidth="250dp"
-        android:id="@+id/tv_voteCountdetail"
-        android:layout_marginStart="10dp"
-        android:text="789"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toEndOf="@id/tv_votedetail"
-        app:layout_constraintTop_toBottomOf="@id/tv_juduldetail"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxHeight="30dp"
-        android:maxWidth="250dp"
-        android:id="@+id/tv_releaseTextdetail"
-        android:text="Release Date "
-        android:textSize="12sp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="@id/tv_juduldetail"
-        app:layout_constraintTop_toBottomOf="@id/tv_votedetail"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxHeight="30dp"
-        android:maxWidth="250dp"
-        android:id="@+id/tv_releasedetail"
-        android:text="12 Desember 2021"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toEndOf="@id/tv_releaseTextdetail"
-        app:layout_constraintTop_toBottomOf="@id/tv_votedetail"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxHeight="1000dp"
-        android:maxWidth="300dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:id="@+id/tv_ringkasandetail"
-        android:text="Judul Note aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_releasedetail"/>
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:id="@+id/iv_posterdetail"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="50dp"
+            android:maxWidth="300dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_juduldetail"
+            tools:text="Judul Note aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_posterdetail"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="30dp"
+            android:maxWidth="250dp"
+            android:id="@+id/tv_votedetail"
+            tools:text="7.509"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="@id/tv_juduldetail"
+            app:layout_constraintTop_toBottomOf="@id/tv_juduldetail"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="30dp"
+            android:maxWidth="250dp"
+            android:id="@+id/tv_voteCountdetail"
+            android:layout_marginStart="10dp"
+            tools:text="789"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@id/tv_votedetail"
+            app:layout_constraintTop_toBottomOf="@id/tv_juduldetail"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="30dp"
+            android:maxWidth="250dp"
+            android:id="@+id/tv_releaseTextdetail"
+            android:text="Release Date "
+            android:textSize="12sp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="@id/tv_juduldetail"
+            app:layout_constraintTop_toBottomOf="@id/tv_votedetail"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="30dp"
+            android:maxWidth="250dp"
+            android:id="@+id/tv_releasedetail"
+            tools:text="12 Desember 2021"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@id/tv_releaseTextdetail"
+            app:layout_constraintTop_toBottomOf="@id/tv_votedetail"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxHeight="1000dp"
+            android:maxWidth="300dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_ringkasandetail"
+            tools:text="Judul Note aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_releasedetail"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

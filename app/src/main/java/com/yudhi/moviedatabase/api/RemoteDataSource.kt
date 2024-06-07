@@ -1,7 +1,8 @@
 package com.yudhi.moviedatabase.api
 
+import com.yudhi.moviedatabase.data.remote.ApiService
+
 class RemoteDataSource(private val apiService: ApiService) {
-    suspend fun searchMovie(query: String) = apiService.searchMovie(query = query)
-    suspend fun getMovieDetail(query: Int) = apiService.getMovieDetail(movieId = query)
+    fun getMovieDetail(query: Int) = apiService.getMovieDetail(movieId = query)
     suspend fun moviePopular() = apiService.getMoviePopular()
 }

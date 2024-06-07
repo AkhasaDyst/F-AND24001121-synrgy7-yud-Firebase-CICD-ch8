@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.yudhi.moviedatabase.view.LoginFragment"
+        android:name="com.yudhi.moviedatabase.presentation.ui.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.yudhi.moviedatabase.view.RegisterFragment"
+        android:name="com.yudhi.moviedatabase.presentation.ui.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" >
         <action
@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/movieFragment"
-        android:name="com.yudhi.moviedatabase.view.MovieFragment"
+        android:name="com.yudhi.moviedatabase.presentation.ui.MovieFragment"
         android:label="fragment_movie"
         tools:layout="@layout/fragment_movie" >
         <action
@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.yudhi.moviedatabase.view.DetailFragment"
+        android:name="com.yudhi.moviedatabase.presentation.ui.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <argument
@@ -50,7 +50,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.yudhi.moviedatabase.view.ProfileFragment"
+        android:name="com.yudhi.moviedatabase.presentation.ui.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
