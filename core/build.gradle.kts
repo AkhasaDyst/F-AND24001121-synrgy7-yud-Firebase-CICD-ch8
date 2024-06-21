@@ -130,8 +130,5 @@ dependencies {
     implementation ("io.insert-koin:koin-androidx-navigation:3.3.0")
     implementation (project (":data"))
     implementation (project (":domain"))
-    implementation (project (":core"))
-
-
-
+    implementation (project (":app"))
 }

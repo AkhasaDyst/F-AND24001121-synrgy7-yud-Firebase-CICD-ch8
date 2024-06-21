@@ -128,8 +128,8 @@ dependencies {
     implementation ("io.insert-koin:koin-android-compat:3.3.0")
     implementation ("io.insert-koin:koin-androidx-workmanager:3.3.0")
     implementation ("io.insert-koin:koin-androidx-navigation:3.3.0")
-    implementation (project (":data"))
     implementation (project (":domain"))
+    implementation (project (":app"))
     implementation (project (":core"))
 
 
