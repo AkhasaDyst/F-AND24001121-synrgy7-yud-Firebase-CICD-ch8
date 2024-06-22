@@ -1,4 +1,4 @@
-package com.yudhi.moviedatabase.helper
+package com.yudhi.domain.helper
 
 import android.accounts.AccountManager.KEY_PASSWORD
 import android.content.Context

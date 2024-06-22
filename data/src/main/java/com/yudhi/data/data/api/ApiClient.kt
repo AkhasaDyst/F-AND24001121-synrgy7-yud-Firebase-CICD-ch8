@@ -1,7 +1,5 @@
-package com.yudhi.moviedatabase
+package com.yudhi.data.data.api
 
-import com.yudhi.moviedatabase.common.Constants
-import com.yudhi.moviedatabase.data.remote.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -21,14 +19,14 @@ object ApiClient {
         .addInterceptor(logging)
         .build()
 
-    val instance: ApiService by lazy {
+    val instance: com.yudhi.data.data.remote.ApiService by lazy {
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
 
-        retrofit.create(ApiService::class.java)
+        retrofit.create(com.yudhi.data.data.remote.ApiService::class.java)
     }
 
 }

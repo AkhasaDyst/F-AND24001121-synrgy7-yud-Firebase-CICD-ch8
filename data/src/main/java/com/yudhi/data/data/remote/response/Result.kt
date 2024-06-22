@@ -1,9 +1,7 @@
-package com.yudhi.moviedatabase.data.remote.response
-
+package com.yudhi.data.data.remote.response
 
 import com.google.gson.annotations.SerializedName
-import com.yudhi.moviedatabase.common.data.remote.response.Result
-import com.yudhi.moviedatabase.common.domain.model.ResultDomain
+
 
 data class Result(
     @SerializedName("adult")
@@ -36,21 +34,3 @@ data class Result(
     val voteCount: Int
 )
 
-fun Result.toResultDomain(): ResultDomain {
-    return ResultDomain(
-        adult = adult,
-        backdropPath = backdropPath,
-        genreIds = genreIds ?: emptyList(),
-        id = id,
-        originalLanguage = originalLanguage,
-        originalTitle = originalTitle,
-        overview = overview,
-        popularity = popularity,
-        posterPath = posterPath,
-        releaseDate = releaseDate,
-        title = title,
-        video = video,
-        voteAverage = voteAverage,
-        voteCount = voteCount
-    )
-}

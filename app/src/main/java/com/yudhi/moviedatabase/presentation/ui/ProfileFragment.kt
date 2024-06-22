@@ -13,7 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import com.yudhi.moviedatabase.R
 import com.yudhi.moviedatabase.databinding.FragmentProfileBinding
-import com.yudhi.moviedatabase.helper.MyDataStore
+import com.yudhi.domain.helper.MyDataStore
 import com.yudhi.moviedatabase.presentation.viewmodel.BlurViewModel
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject

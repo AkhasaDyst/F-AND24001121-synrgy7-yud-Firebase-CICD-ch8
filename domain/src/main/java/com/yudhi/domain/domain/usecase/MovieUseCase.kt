@@ -1,8 +1,8 @@
-package com.yudhi.moviedatabase.domain.usecase
+package com.yudhi.domain.domain.usecase
 
 import androidx.lifecycle.LiveData
-import com.yudhi.moviedatabase.common.data.repository.MovieRepository
-import com.yudhi.moviedatabase.common.domain.model.ResultDomain
+import com.yudhi.domain.domain.model.ResultDomain
+import com.yudhi.domain.domain.repository.MovieRepository
 
 class MovieUseCase(val repository: MovieRepository) {
     fun getMovieDetail(movieId: Int): LiveData<ResultDomain?> {

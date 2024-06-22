@@ -1,4 +1,4 @@
-package com.yudhi.moviedatabase.common
+package com.yudhi.domain.common
 
 enum class Status {
     SUCCESS,

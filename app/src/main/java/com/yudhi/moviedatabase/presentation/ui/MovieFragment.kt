@@ -12,9 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.yudhi.moviedatabase.R
 import com.yudhi.moviedatabase.databinding.FragmentMovieBinding
-import com.yudhi.moviedatabase.helper.MyDataStore
+import com.yudhi.domain.helper.MyDataStore
 import com.yudhi.moviedatabase.presentation.viewmodel.MovieViewModel
-import com.yudhi.moviedatabase.common.Status
+import com.yudhi.domain.common.Status
 import com.yudhi.moviedatabase.presentation.adapter.MovieAdapter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch

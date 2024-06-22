@@ -14,7 +14,7 @@ class App : Application() {
             androidContext(this@App)
             modules(
                 listOf(
-                    dataModule, uiModule
+                    uiModule, dataModule
                 )
             )
         }

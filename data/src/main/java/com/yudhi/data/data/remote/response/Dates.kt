@@ -1,4 +1,4 @@
-package com.yudhi.moviedatabase.data.remote.response
+package com.yudhi.data.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 

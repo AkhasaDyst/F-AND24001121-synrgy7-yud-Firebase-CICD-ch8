@@ -1,15 +1,14 @@
-package com.yudhi.moviedatabase.data.repository
+package com.yudhi.domain.domain.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.yudhi.moviedatabase.api.RemoteDataSource
-import com.yudhi.moviedatabase.common.data.remote.response.toResultDomain
-import com.yudhi.moviedatabase.common.domain.model.Movie
-import com.yudhi.moviedatabase.common.domain.model.ResultDomain
+import com.yudhi.data.data.remote.RemoteDataSource
+import com.yudhi.domain.domain.model.ResultDomain
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import com.yudhi.moviedatabase.common.data.remote.response.Result
+import com.yudhi.data.data.remote.response.Result
+import com.yudhi.domain.domain.model.toResultDomain
 
 class MovieRepository(private val remoteDataSource: RemoteDataSource) {
     suspend fun getMoviePopular(): List<ResultDomain>? = remoteDataSource.moviePopular().results?.map { it.toResultDomain() }

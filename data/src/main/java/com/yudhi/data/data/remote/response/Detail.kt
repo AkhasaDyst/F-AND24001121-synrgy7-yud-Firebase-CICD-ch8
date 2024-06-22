@@ -1,12 +1,6 @@
-package com.yudhi.moviedatabase.data.remote.response
-
+package com.yudhi.data.data.remote.response
 
 import com.google.gson.annotations.SerializedName
-import com.yudhi.moviedatabase.common.data.remote.response.BelongsToCollection
-import com.yudhi.moviedatabase.common.data.remote.response.Genre
-import com.yudhi.moviedatabase.common.data.remote.response.ProductionCompany
-import com.yudhi.moviedatabase.common.data.remote.response.ProductionCountry
-import com.yudhi.moviedatabase.common.data.remote.response.SpokenLanguage
 
 data class Detail(
     @SerializedName("adult")

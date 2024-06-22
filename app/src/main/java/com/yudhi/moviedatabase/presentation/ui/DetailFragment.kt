@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
-import com.yudhi.moviedatabase.common.Status
+import com.yudhi.domain.common.Status
 import com.yudhi.moviedatabase.databinding.FragmentDetailBinding
 import com.yudhi.moviedatabase.presentation.viewmodel.MovieViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -31,6 +31,7 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val movieId = requireArguments().getInt("movieId")
         viewModel.getDetailMovie(movieId).observe(viewLifecycleOwner, Observer { resources ->
+            Log.d("Debug", "Resource Status: ${resources.status}")
             when (resources.status) {
                 Status.SUCCESS -> {
                     val movieDetail = resources.data

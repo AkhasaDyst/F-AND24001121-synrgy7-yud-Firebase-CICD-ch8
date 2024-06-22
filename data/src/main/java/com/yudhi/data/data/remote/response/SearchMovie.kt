@@ -1,8 +1,6 @@
-package com.yudhi.moviedatabase.data.remote.response
-
-
+package com.yudhi.data.data.remote.response
 import com.google.gson.annotations.SerializedName
-import com.yudhi.moviedatabase.common.data.remote.response.Result
+
 
 data class SearchMovie(
     @SerializedName("page")

@@ -9,7 +9,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.yudhi.moviedatabase.R
-import com.yudhi.moviedatabase.domain.model.ResultDomain
+import com.yudhi.domain.domain.model.ResultDomain
 import com.yudhi.moviedatabase.presentation.ui.MovieFragmentDirections
 
 

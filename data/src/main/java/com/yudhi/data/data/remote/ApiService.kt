@@ -1,9 +1,9 @@
-package com.yudhi.moviedatabase.data.remote
+package com.yudhi.data.data.remote
 
-import com.yudhi.moviedatabase.common.data.remote.response.MovieResponse
-import com.yudhi.moviedatabase.common.data.remote.request.RatingRequest
-import com.yudhi.moviedatabase.common.data.remote.response.Responses
-import com.yudhi.moviedatabase.common.data.remote.response.Result
+import com.yudhi.data.data.remote.request.RatingRequest
+import com.yudhi.data.data.remote.response.MovieResponse
+import com.yudhi.data.data.remote.response.Responses
+import com.yudhi.data.data.remote.response.Result
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header

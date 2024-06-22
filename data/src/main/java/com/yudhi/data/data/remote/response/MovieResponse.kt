@@ -1,10 +1,7 @@
-package com.yudhi.moviedatabase.data.remote.response
+package com.yudhi.data.data.remote.response
 
 import com.google.gson.annotations.SerializedName
-import com.yudhi.moviedatabase.common.data.remote.response.Dates
-import com.yudhi.moviedatabase.common.data.remote.response.MovieResponse
-import com.yudhi.moviedatabase.common.data.remote.response.Result
-import com.yudhi.moviedatabase.common.domain.model.Movie
+
 
 data class MovieResponse(
     @SerializedName("dates")
@@ -19,12 +16,4 @@ data class MovieResponse(
     val totalResults: Int?
 )
 
-fun MovieResponse.toMovie(): Movie {
-    return Movie(
-         dates = dates,
-         page = page,
-         results = results,
-         totalPages = totalPages,
-         totalResults = totalResults
-    )
-}
+
