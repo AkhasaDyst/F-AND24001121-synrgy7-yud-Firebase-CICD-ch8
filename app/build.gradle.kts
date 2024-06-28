@@ -64,6 +64,7 @@ buildscript {
     dependencies {
         val nav_version = "2.5.0"
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
+
     }
 }
 
@@ -128,6 +129,10 @@ dependencies {
     implementation ("io.insert-koin:koin-android-compat:3.3.0")
     implementation ("io.insert-koin:koin-androidx-workmanager:3.3.0")
     implementation ("io.insert-koin:koin-androidx-navigation:3.3.0")
+
+    debugImplementation ("com.github.chuckerteam.chucker:library:4.0.0")
+    releaseImplementation ("com.github.chuckerteam.chucker:library-no-op:4.0.0")
+
     implementation (project (":domain"))
     implementation (project (":data"))
 

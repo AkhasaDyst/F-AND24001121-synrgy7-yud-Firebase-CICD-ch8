@@ -107,6 +107,8 @@ dependencies {
     implementation ("io.insert-koin:koin-androidx-workmanager:3.3.0")
     implementation ("io.insert-koin:koin-androidx-navigation:3.3.0")
 
+    debugImplementation ("com.github.chuckerteam.chucker:library:4.0.0")
+    releaseImplementation ("com.github.chuckerteam.chucker:library-no-op:4.0.0")
 
 
 
