@@ -11,6 +11,7 @@ class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        context = this
         ApiClient.initialize(AppContextProvider(this))
         startKoin {
             androidContext(this@App)
@@ -22,6 +23,11 @@ class App : Application() {
             )
         }
     }
+
+    companion object {
+        var context: Application? = null
+    }
+
 
 
 }
