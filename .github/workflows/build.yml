@@ -1,0 +1,78 @@
+name: Build
+on:
+  pull_request:
+    branches: [ master ]
+  push :
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v4.2.1
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Create blank google-services.json (for Firebase)
+        run: cat /home/runner/work/F-AND24001121-synrgy7-yud-Firebase-CICD-ch8/F-AND24001121-synrgy7-yud-Firebase-CICD-ch8/app/google-services.json | base64
+
+      - name: Generate google-services.json from secrets
+        env:
+          DATA: ${{ secrets.GOOGLE_SERVICES_JSON }}
+        run: echo $DATA > /home/runner/work/F-AND24001121-synrgy7-yud-Firebase-CICD-ch8/F-AND24001121-synrgy7-yud-Firebase-CICD-ch8/app/google-services.json
+
+      - name: Run Lint Checks
+        run: ./gradlew lint
+
+      - name: Run Unit Tests
+        run: ./gradlew test
+
+      - name: Decode Keystore
+        env:
+          ENCODED_STRING: ${{ secrets.SIGNING_KEY_STORE_BASE64 }}
+          SIGNING_KEY_STORE_PATH: ${{ secrets.SIGNING_KEY_STORE_PATH }}
+
+        run: |
+          echo $ENCODED_STRING > keystore-b64.txt
+          base64 -d keystore-b64.txt > $SIGNING_KEY_STORE_PATH
+
+      - name: Build Unsigned APK Debug Live Variant with Gradle
+        run: ./gradlew assembleLiveDebug
+
+      - name: Build Unsigned APK Debug Prod Variant with Gradle
+        run: ./gradlew assembleProdDebug
+
+      - name: Build Android Bundle (.aab) Release Prod Variant
+        env:
+          SIGNING_KEY_STORE_PATH: ${{ secrets.SIGNING_KEY_STORE_PATH }}
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+        run: ./gradlew bundleProdRelease
+
+      - name: Build Android Bundle (.aab) Release Live Variant
+        env:
+          SIGNING_KEY_STORE_PATH: ${{ secrets.SIGNING_KEY_STORE_PATH }}
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+        run: ./gradlew bundleLiveRelease
+
+      - name: Upload .apk
+        uses: actions/upload-artifact@v4
+        with:
+          name: movie_database_apk
+          path: app/build/outputs/apk/
+
+      - name: Upload .aab
+        uses: actions/upload-artifact@v4
+        with:
+          name: movie_database_release_aab
+          path: app/build/outputs/bundle/

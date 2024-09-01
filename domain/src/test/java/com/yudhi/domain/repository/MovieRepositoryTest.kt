@@ -48,7 +48,7 @@ class MovieRepositoryTest {
     }
 
     @Test
-    suspend fun getMoviePopular() {
+    fun getMoviePopular() {
         val movies = movieRepository.getMoviePopular()
 
         // Verifikasi hasil tidak null

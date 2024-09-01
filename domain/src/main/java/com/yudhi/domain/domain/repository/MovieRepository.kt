@@ -11,7 +11,7 @@ import com.yudhi.data.data.remote.response.Result
 import com.yudhi.domain.domain.model.toResultDomain
 
 class MovieRepository(private val remoteDataSource: RemoteDataSource) {
-    suspend fun getMoviePopular(): List<ResultDomain>? = remoteDataSource.moviePopular().results?.map { it.toResultDomain() }
+    fun getMoviePopular(): List<ResultDomain>? = remoteDataSource.moviePopular().results?.map { it.toResultDomain() }
     fun getMovieDetail(query: Int): LiveData<ResultDomain?> {
         val result = MutableLiveData<ResultDomain?>()
 

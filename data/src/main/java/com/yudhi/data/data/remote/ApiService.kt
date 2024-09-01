@@ -18,7 +18,7 @@ interface ApiService {
     ): Call<MovieResponse>
 
     @GET("movie/popular")
-    suspend fun getMoviePopular(
+    fun getMoviePopular(
     ): MovieResponse
 
     @GET("movie/{movie_id}")

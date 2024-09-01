@@ -1,1 +1,4 @@
 /build
+google-services.json
+/src/live//google-services.json
+/src/prod//google-services.json
