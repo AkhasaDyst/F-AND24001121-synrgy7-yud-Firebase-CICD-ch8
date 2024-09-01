@@ -38,7 +38,7 @@ jobs:
         env:
           DATA: ${{ secrets.GOOGLE_SERVICES_JSON }}
         run: echo $DATA > /home/runner/work/F-AND24001121-synrgy7-yud-Firebase-CICD-ch8/F-AND24001121-synrgy7-yud-Firebase-CICD-ch8/app/google-services.json
-
+        
       - name: Run Lint Checks
         run: ./gradlew lint
 
