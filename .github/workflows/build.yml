@@ -31,24 +31,15 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Create blank google-services.json (for Firebase)
-        run: cat /home/runner/work/F-AND24001121-synrgy7-yud-Firebase-CICD-ch8/F-AND24001121-synrgy7-yud-Firebase-CICD-ch8/app/google-services.json | base64
-
       - name: Generate google-services.json from secrets
         env:
           DATA: ${{ secrets.GOOGLE_SERVICES_JSON }}
         run: echo $DATA > /home/runner/work/F-AND24001121-synrgy7-yud-Firebase-CICD-ch8/F-AND24001121-synrgy7-yud-Firebase-CICD-ch8/app/google-services.json
         
-      - name: Create blank google-services.json for Live Variant
-        run: cat /home/runner/work/F-AND24001121-synrgy7-yud-Firebase-CICD-ch8/F-AND24001121-synrgy7-yud-Firebase-CICD-ch8/app/src/live/google-services.json | base64
-        
       - name: Generate google-services.json for Live Variant
         env:
           DATA: ${{ secrets.GOOGLE_SERVICES_JSON_LIVE }}
         run: echo $DATA > /home/runner/work/F-AND24001121-synrgy7-yud-Firebase-CICD-ch8/F-AND24001121-synrgy7-yud-Firebase-CICD-ch8/app/src/live/google-services.json
-
-      - name: Create blank google-services.json for Prod Variant
-        run: cat /home/runner/work/F-AND24001121-synrgy7-yud-Firebase-CICD-ch8/F-AND24001121-synrgy7-yud-Firebase-CICD-ch8/app/src/prod/google-services.json | base64
         
       - name: Generate google-services.json for Prod Variant
         env:
