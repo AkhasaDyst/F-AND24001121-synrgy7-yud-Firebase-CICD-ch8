@@ -39,8 +39,34 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "BUILD_TYPE", "\"release\"")
+        }
+        debug {
+            applicationIdSuffix = ".debug"
+            versionNameSuffix = "-debug"
+            buildConfigField("String", "BUILD_FLAVOR", "\"debug\"")
         }
     }
+
+    flavorDimensions += listOf("env")
+
+    productFlavors {
+        create("prod") {
+            dimension = "env"
+            applicationIdSuffix = ".prod"
+            versionNameSuffix = ".prod"
+            manifestPlaceholders["app_name"] = "TMDB Production"
+            buildConfigField("String", "BUILD_FLAVOR", "\"prod\"")
+        }
+        create("live") {
+            dimension = "env"
+            applicationIdSuffix = ".live"
+            versionNameSuffix = ".live"
+            manifestPlaceholders["app_name"] = "TMDB"
+            buildConfigField("String", "BUILD_FLAVOR", "\"live\"")
+        }
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -50,6 +76,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
     room {
         schemaDirectory("$projectDir/schemas")

@@ -1,21 +1,21 @@
-package com.yudhi.data.data.api
+package com.yudhi.moviedatabase.api
 
 
+import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
+import com.chuckerteam.chucker.api.RetentionManager
+import com.yudhi.data.data.remote.ApiService
+import com.yudhi.moviedatabase.di.App
+import okhttp3.Interceptor
 
 import okhttp3.OkHttpClient
+import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
     const val BASE_URL = Constants.BASE_URL
-
-    private lateinit var contextProvider: ContextProvider
-
-    fun initialize(contextProvider: ContextProvider) {
-        this.contextProvider = contextProvider
-    }
 
     private val logging: HttpLoggingInterceptor
         get() {
@@ -24,10 +24,11 @@ object ApiClient {
                 httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
             }
         }
+
     private val client: OkHttpClient by lazy {
         OkHttpClient.Builder()
             .addInterceptor(logging)
-            .addInterceptor(ChuckerInterceptor(contextProvider.getContext()))
+            .addInterceptor(ChuckerInterceptor(App.context!!))
             .build()
     }
 
@@ -42,3 +43,15 @@ object ApiClient {
     }
 
 }
+
+class AuthInterceptor : Interceptor {
+    override fun intercept(chain: Interceptor.Chain): Response {
+        val original = chain.request()
+        val reqBuilder = original.newBuilder()
+            .header("Authorization", "Bearer ${Constants.API_KEY}")
+            .header("Accept", "application/json")
+        val request = reqBuilder.build()
+        return chain.proceed(request)
+    }
+}
+
