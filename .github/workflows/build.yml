@@ -4,6 +4,17 @@ on:
     branches: [ master ]
   push :
     branches: [ master ]
+  workflow_dispatch:
+    inputs:
+      build_type:
+        description: 'Type of build to run'
+        required: true
+        default: 'debug'
+        type: choice
+        options:
+          - debug
+          - release
+
 jobs:
   build:
     runs-on: ubuntu-latest
